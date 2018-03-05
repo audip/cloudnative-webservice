@@ -1,4 +1,5 @@
 ## Web service based on cloud native tools
+[![Build Status](https://travis-ci.org/audip/cloudnative-webservice.svg?branch=master)](https://travis-ci.org/audip/cloudnative-webservice)
 
 ## User Stories
 
