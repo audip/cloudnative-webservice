@@ -4,7 +4,9 @@ import (
   "encoding/json"
   "log"
   "net/http"
+  "time"
   "github.com/gorilla/mux"
+  "github.com/heptiolabs/healthcheck"
 )
 
 type Person struct {
@@ -64,10 +66,21 @@ func main() {
   people = append(people, Person{ID:"2", FirstName:"Jane", LastName:"Doe", Address: &Address{City: "Houston", State: "Texas"}})
   people = append(people, Person{ID:"3", FirstName:"Francesca", LastName:"Rhodes"})
 
+  // Add healthchecks
+  health := healthcheck.NewHandler()
+  // Our app is not happy if we've got more than 100 goroutines running.
+  health.AddLivenessCheck("goroutine-threshold", healthcheck.GoroutineCountCheck(100))
+  // Our app is not ready if we can't resolve our upstream dependency in DNS.
+  health.AddReadinessCheck(
+      "upstream-google",
+      healthcheck.DNSResolveCheck("google.com", 50*time.Millisecond))
+
   router := mux.NewRouter()
   router.HandleFunc("/people", GetPeople).Methods("GET")
   router.HandleFunc("/people/{id}", GetPerson).Methods("GET")
   router.HandleFunc("/people/{id}", CreatePerson).Methods("POST")
   router.HandleFunc("/people/{id}", DeletePerson).Methods("DELETE")
+  router.HandleFunc("/live", health.LiveEndpoint)
+  router.HandleFunc("/ready", health.ReadyEndpoint)
   log.Fatal(http.ListenAndServe(":8080", router))
 }

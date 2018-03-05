@@ -5,6 +5,7 @@
 
 ### Required Stories
 - [x] webservice should be written in [Golang](https://golang.org/).
+- [ ] webservice should have healthchecks on `/live` and `/ready` endpoints
 - [ ] webservice should emit metrics for [prometheus](https://prometheus.io/) to scrape.
 - [ ] webservice should emit logs that are shipped by [fluentd](https://www.fluentd.org/) to [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 - [ ] webservice should have tracing (opentracing API) built in, which can be viewed in [Jaeger](http://jaeger.readthedocs.io/en/latest/).
