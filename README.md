@@ -3,13 +3,13 @@
 ## User Stories
 
 ### Required Stories
-- [ ] webservice should be written in [Golang](https://golang.org/).
+- [x] webservice should be written in [Golang](https://golang.org/).
 - [ ] webservice should emit metrics for [prometheus](https://prometheus.io/) to scrape.
 - [ ] webservice should emit logs that are shipped by [fluentd](https://www.fluentd.org/) to [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 - [ ] webservice should have tracing (opentracing API) built in, which can be viewed in [Jaeger](http://jaeger.readthedocs.io/en/latest/).
-- [ ] webservice should have REST endpoints for other services to connect to.
+- [x] webservice should have REST endpoints for other services to connect to.
 - [ ] webservice should have CI (Travis CI) and CD (docker hub).
-- [ ] webservice should be dockerized and use multi-stage builds to copy go binary.
+- [x] webservice should be dockerized and use multi-stage builds to copy go binary.
 
 ### Optional Stories
 - [ ] webservice should have good code coverage (tests), [goreport](https://goreportcard.com/) of A or above.

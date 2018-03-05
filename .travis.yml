@@ -1,0 +1,20 @@
+language: go
+sudo: false
+
+branches:
+  only:
+    - master
+
+before_install:
+  - go get github.com/audip/cloudnative-webservice
+
+install:
+  - # skip
+
+script:
+  - go get -t -v ./...
+
+go:
+  - "1.x"
+  - "1.8"
+  - "1.9"
