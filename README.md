@@ -8,7 +8,7 @@
 - [ ] webservice should emit logs that are shipped by [fluentd](https://www.fluentd.org/) to [elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html).
 - [ ] webservice should have tracing (opentracing API) built in, which can be viewed in [Jaeger](http://jaeger.readthedocs.io/en/latest/).
 - [x] webservice should have REST endpoints for other services to connect to.
-- [x] webservice should have CI (Travis CI) and CD (docker hub).
+- [x] webservice should have CI (Travis CI) and CD (Docker hub).
 - [x] webservice should be dockerized and use multi-stage builds to copy go binary.
 
 ### Optional Stories
